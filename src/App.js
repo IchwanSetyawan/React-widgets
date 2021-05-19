@@ -17,7 +17,7 @@ const items = [
   }
 ]
 
-const App = () => {
+const App = () => {  
   return (
     <div>
       <Search />      
