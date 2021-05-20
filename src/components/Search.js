@@ -36,7 +36,7 @@ const Search = () => {
          search();
     }, [debouncedTerm])
     
-    
+     
 
     const renderedResults = results.map(result=>{
         return (
