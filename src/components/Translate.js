@@ -13,17 +13,17 @@ const options = [
     value: 'ar',
   },
   {
-    label: 'Indonesian',
-    value: 'id',
+    label: 'Dutch',
+    value: 'nl',
   },
   {
     label: 'Hindi',
     value: 'hi',
   },
   {
-    label: 'Dutch',
-    value: 'nl',
-  }
+    label: 'Indonesian',
+    value: 'id',
+  },
 ];
 
 const Translate = () => {
