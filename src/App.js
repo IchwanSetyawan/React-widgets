@@ -3,6 +3,7 @@ import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
+import Route from './components/Route';
 
 const items = [
   {
@@ -35,43 +36,61 @@ const options = [
 ];
 
 
-const showAccordion = () =>{
-  if(window.location.pathname === '/'){
-    return (
-      <div>
-        <Accordion items={items} />
-      </div>
-    )    
-  }
-}
+// const showAccordion = () =>{
+//   if(window.location.pathname === '/'){
+//     return (
+//       <div>
+//         <Accordion items={items} />
+//       </div>
+//     )    
+//   }
+// }
 
-const showList = () => {
-  if(window.location.pathname === '/list'){
-    return <Search />
-  }
-}
+// const showList = () => {
+//   if(window.location.pathname === '/list'){
+//     return <Search />
+//   }
+// }
 
-const showDropDown = () => {
-  if(window.location.pathname === '/dropdown'){
-    return <Dropdown options={options} />
-  }
-}
+// const showDropDown = () => {
+//   if(window.location.pathname === '/dropdown'){
+//     return <Dropdown options={options} />
+//   }
+// }
 
-const showTranslate = () => {
-  if(window.location.pathname === '/translate'){
-    return <Translate /> 
-  }
-}
+// const showTranslate = () => {
+//   if(window.location.pathname === '/translate'){
+//     return <Translate /> 
+//   }
+// }
 
 
 
 const App = () => {   
-  return <div>
-    {showAccordion()}   
-    {showList()}     
-    {showDropDown()}
-    {showTranslate()}
-  </div>
+
+  const [selected, setSelected] = useState(options[0]);
+  return (
+    <div>
+      <Route path="/">
+        <Accordion items={items}/>
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>   
+      <Route path="/dropdown">
+        <Dropdown 
+          label="Select a color"
+          options={options} 
+          selected={selected}
+          onSelectedChange={setSelected}
+          />
+      </Route>    
+      <Route path="/translate">
+        <Translate />
+      </Route>
+
+    </div>
+  )
 };
 
 export default App;
